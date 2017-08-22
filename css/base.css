@@ -297,7 +297,7 @@ footer .container .foot-left ul li:nth-of-type(1){
 }
 
 footer .container .row .foot-right .foot-right-content{
-	width: 200px;
+	width: 250px;
 	margin: 0 auto;
 	text-align: center;
 }
@@ -428,11 +428,21 @@ footer .container .row .foot-right .foot-right-content p:nth-of-type(2){
 .content-body .container .row div:nth-of-type(2) .content-body-main{
 	clear:both;
 	margin-top: 20px;
+	margin-bottom: 20px;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	display: flex;
 }
 .content-body .container .row div:nth-of-type(2) .content-body-main p{
 	line-height: 25px;
 }
-
+.content-body .container .row div:nth-of-type(2) .content-body-main img{
+	width: 300px;
+	margin: 10px 0;
+}
+.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus{
+	background-color:transparent;
+}
 
 
 
@@ -440,32 +450,6 @@ footer .container .row .foot-right .foot-right-content p:nth-of-type(2){
 
 
 @media only screen and (min-width: 768px) {
-	.navbar{
-		min-height: 100px;
-		background: #fff;
-		margin-bottom: 0px;
-		border: 0;
-	}
-	.navbar-nav > li{
-		display: flex;
-		align-items: center;
-		height: 100%;
-		color: #353535;
-	}
-	.navbar-nav > li > a{
-		font-weight: bold;
-	}
-	.navbar-header{
-		height: 100px;
-	}
-	.navbar-nav{
-		
-		height: 100px;
-	}
-	.navbar-brand{
-		line-height: 70px;
-	}
-	
 	.box1{
 		width: 100px;
 		height: 100px;
@@ -540,6 +524,56 @@ footer .container .row .foot-right .foot-right-content p:nth-of-type(2){
 	nav .container .collapse .nav .active .box1:hover .block1{
 		-webkit-transform: rotateY(0deg);
 	}
+	.navbar{
+		min-height: 100px;
+		background: #fff;
+		margin-bottom: 0px;
+		border: 0;
+	}
+	.navbar-nav > li{
+		display: flex;
+		align-items: center;
+		height: 100%;
+		color: #353535;
+	}
+	.navbar-nav > li > a{
+		font-weight: bold;
+	}
+	.navbar-header{
+		height: 100px;
+	}
+	.navbar-nav{
+		
+		height: 100px;
+	}
+	.navbar-brand{
+		line-height: 70px;
+		
+	}
+	
+	nav .container .collapse .nav li{
+		text-align:center;
+	}
+	nav .container .collapse .nav li a{
+		margin:0 auto;
+	}
+	nav .container .collapse .nav li:hover{
+		background: #0082CD;
+	}
+	nav .container .collapse .nav li:hover a{
+		color:#fff;
+	}
+	nav .container .collapse .nav .active{
+		width: 100px;
+		height: 100px;
+		background: #0082CD;
+		text-align: center;
+		line-height: 100px;
+	}
+	nav .container .collapse .nav .active a{
+		color: #FFFFFF;
+	}
+
 
 }
 @media only screen and (max-width: 768px) {
@@ -565,10 +599,8 @@ footer .container .row .foot-right .foot-right-content p:nth-of-type(2){
 	.nav > li:hover{
 		background: #337ab7;
 	}
-	.nav > li .box1 .block1 a{
-		color: #666;
-	}
 	.nav > li:hover .box1 .block1 a{
 		color: #fff;
 	}
+	
 }

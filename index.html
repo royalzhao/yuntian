@@ -42,7 +42,7 @@
 	                <span class="icon-bar"></span>
 	                <span class="icon-bar"></span>
 	            </button>
-	            <a class="navbar-brand" href="#">
+	            <a class="navbar-brand" href="index.html">
 	            	<span class="visible-lg visible-md">云天科技外贸公共服务平台 </span>
 	            	<img src="img/logo.png" class="visible-sm" />
 	            	<span class="visible-xs">云天科技</span>
@@ -51,74 +51,33 @@
 	    
 	        <!-- Collect the nav links, forms, and other content for toggling -->
 	        <div class="collapse navbar-collapse navbar-ex1-collapse">
-	           	<ul class="nav navbar-nav">
-	               	<li class="active">
-	               		<div class="box1">
-							<div class="block1">
-								<a href="index.html">云天首页</a>
+				<script id="nav-template" type="text/x-handlebars-template">
+					{{#each navs}}
+						<!-- <li>
+							<a href="content.html?id={{id}}">{{name}}</a>
+						 </li> -->
+						 <li>
+							<div class="box1">
+								<div class="block1">
+									<div><a href="content.html?id={{id}}">{{name}}</a></a></div>
+									<div class="hidden-xs"><a href="content.html?id={{id}}">{{name}}</a></div>
+									<div class="hidden-xs"><a href="content.html?id={{id}}">{{name}}</a></div>
+									<div class="hidden-xs"><a href="content.html?id={{id}}">{{name}}</a></div>
+									<div class="hidden-xs"><a href="content.html?id={{id}}">{{name}}</a></div>
+									<div class="hidden-xs"><a href="content.html?id={{id}}">{{name}}</a></div>
+								</div>
 							</div>
-						</div>
-	               	</li>
-	               	<li>
-	               		<div class="box1">
-							<div class="block1">
-								<div><a href="content.html">企业简介</a></div>
-								<div class="hidden-xs"><a href="content.html">企业简介</a></div>
-								<div class="hidden-xs"><a href="content.html">企业简介</a></div>
-								<div class="hidden-xs"><a href="content.html">企业简介</a></div>
-								<div class="hidden-xs"><a href="content.html">企业简介</a></div>
-								<div class="hidden-xs"><a href="content.html">企业简介</a></div>
-							</div>
-						</div>
-	               	</li>
-	               	<li>
-	               		<div class="box1">
-							<div class="block1">
-								<div><a href="">平台介绍</a></div>
-								<div class="hidden-xs"><a href="content.html">平台介绍</a></div>
-								<div class="hidden-xs"><a href="content.html">平台介绍</a></div>
-								<div class="hidden-xs"><a href="content.html">平台介绍</a></div>
-								<div class="hidden-xs"><a href="content.html">平台介绍</a></div>
-								<div class="hidden-xs"><a href="content.html">平台介绍</a></div>
-							</div>
-						</div>
-	               	</li>
-	               	<li>
-	               		<div class="box1">
-							<div class="block1">
-								<div><a href="">政策支持</a></div>
-								<div class="hidden-xs"><a href="content.html">政策支持</a></div>
-								<div class="hidden-xs"><a href="content.html">政策支持</a></div>
-								<div class="hidden-xs"><a href="content.html">政策支持</a></div>
-								<div class="hidden-xs"><a href="content.html">政策支持</a></div>
-								<div class="hidden-xs"><a href="content.html">政策支持</a></div>
-							</div>
-						</div>
-	               	</li>
-	               	<li>
-	               		<div class="box1">
-							<div class="block1">
-								<div><a href="">合作企业</a></div>
-								<div class="hidden-xs"><a href="content.html">合作企业</a></div>
-								<div class="hidden-xs"><a href="content.html">合作企业</a></div>
-								<div class="hidden-xs"><a href="content.html">合作企业</a></div>
-								<div class="hidden-xs"><a href="content.html">合作企业</a></div>
-								<div class="hidden-xs"><a href="content.html">合作企业</a></div>
-							</div>
-						</div>
-	               	</li>
-	                <li>
-	                	<div class="box1">
-							<div class="block1">
-								<div><a href="">联系我们</a></div>
-								<div class="hidden-xs"><a href="content.html">联系我们</a></div>
-								<div class="hidden-xs"><a href="content.html">联系我们</a></div>
-								<div class="hidden-xs"><a href="content.html">联系我们</a></div>
-								<div class="hidden-xs"><a href="content.html">联系我们</a></div>
-								<div class="hidden-xs"><a href="content.html">联系我们</a></div>
-							</div>
-						</div>
-	                </li>
+						</li>
+					{{/each}}
+				</script>
+	           	<ul class="nav navbar-nav" id="nav">
+					<li class="active">
+						<div class="box1">
+						 <div class="block1">
+							 <a href="index.html">云天首页</a>
+						 </div>
+					 </div>
+					</li>
 	            </ul>
 	        </div><!-- /.navbar-collapse -->
 	 	</div>
@@ -430,8 +389,34 @@
    	</footer>
    	<script src="js/jquery.js" type="text/javascript" charset="utf-8"></script>
 	<script src="js/bootstrap.js" type="text/javascript" charset="utf-8"></script>
-    <script src="js/wow.min.js" type="text/javascript" charset="utf-8"></script>
-    <script src="js/base.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/wow.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/base.js" type="text/javascript" charset="utf-8"></script>
+	<script src="./js/handlebars-v4.0.10.js"></script>
+	<script src="js/data.js"></script>
+	<script>
+		 function _request_content(){
+		 		return content;
+		 }
+		$(function(){
+			
+			//获取模板数据
+			var TemplateScript = $('#nav-template').html();
+			//handlebars.compile编译模板
+			var Template = Handlebars.compile(TemplateScript);
+			//定义数据
+			var context = {
+				navs:  _request_content()
+			}
+
+			//把数据传送到模板
+			var compileHtml = Template(context);
+			
+			//更新到模板
+			$('#nav').append(compileHtml);
+				
+
+		})
+	</script>
     
 </body>
 </html>
