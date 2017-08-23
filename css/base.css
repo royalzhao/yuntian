@@ -422,6 +422,9 @@ footer .container .row .foot-right .foot-right-content p:nth-of-type(2){
 	color: #000;
 	font-size: 20px;
 }
+.content-body .container .row div:nth-of-type(2) .content-body-head p:nth-of-type(2) a{
+	text-decoration:none;
+}
 .content-body .container .row div:nth-of-type(2) .content-body-head p{
 	font-size: 12px;
 }
